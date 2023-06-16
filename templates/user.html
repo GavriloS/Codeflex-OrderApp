@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+ {% if orders["detail"] != "Not Found"%}
+    <h1 class="header">{{customer["firstname"]}} {{customer["sirname"]}}</h1>
+    <div class="orders">
+        <div>
+
+            <h1 class="header">Select order for invoice creation</h1>
+
+            <div  class="users"  method="Get">
+                {%for order in orders%}
+                <form action={{url_for('createInvoice', customer_id=customer['id'], order_no = order['order_no'])}}>
+
+                    <div class="userCard">
+
+                         <button type="submit" class="userButton">{{order["order_no"]}}</button>
+
+
+                    </div>
+                </form>
+                {%endfor%}
+            </div>
+        </div>
+            <div>
+              <h1 class="header">Select order for packing</h1>
+
+                 <div  class="users" >
+                        {%for order in orders%}
+                        <form action={{url_for('orderPicking', order_no = order['order_no'])}}>
+
+                            <div class="userCard">
+
+                                 <button type="submit" class="userButton">{{order["order_no"]}}</button>
+
+
+                            </div>
+                        </form>
+                        {%endfor%}
+                    </div>
+            </div>
+    </div>
+ {%else%}
+ <h1 class="header"> Not found </h1>
+{%endif%}
+
+</body>
+</html>

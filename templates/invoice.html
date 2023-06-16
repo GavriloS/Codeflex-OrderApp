@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Invoice</h1>
+<h4>Delivery date: {{deliveryDate}}</h4>
+<h1>{{customer.salutation}} {{customer["firstname"]}} {{customer["sirname"]}}</h1>
+<h2>Address: {{customer["address"]["street"]}} {{customer["address"]["number"]}}, {{customer["address"]["zipcode"]}} {{customer["address"]["city"]}} , {{customer["address"]["country"]}}</h2>
+<h2>Order: {{order_no}}</h2>
+<h2>Total price {{totalPrice}}$</h2>
+<h3>Total Tax {{totalTax}}$</h3>
+<br>
+<h2>Items</h2>
+{% for item in order %}
+<p><b>{{item["name"]}}</b> price: {{item["unit_price"]}}$, tax type: {{item["tax_type"]}}, tax ammount: {{getTax(item)}}$, amount: {{item["quantity_in_box"]}}</p>
+  {% endfor %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href='/static/style.css' />
+</head>
+<body>
+    <div class="header">
+        <h1>Select Customer</h1>
+    </div>
+    <div  class="users"  method="Get">
+        {%for customer in customers%}
+        <form action={{url_for('getCustomerOrders', customer_id=customer['id'])}}>
+
+            <div class="userCard">
+
+                 <button type="submit" class="userButton">{{customer["firstname"]}} {{customer["sirname"]}}</button>
+
+
+            </div>
+        </form>
+        {%endfor%}
+    </div>
+
+
+
+
+</body>
+</html>

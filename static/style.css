@@ -1,0 +1,36 @@
+
+.users{
+    display:flex;
+    justify-content:center;
+}
+
+.userButton{
+    background-color:transparent;
+    padding:8em;
+    border-radius:20px;
+    background-color: #03fcfc;
+    border:0px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.orders{
+    display:flex;
+    flex-direction: column
+}
+
+.userCard{
+
+    margin: 3em;
+
+    width: min-content;
+
+}
+h1{
+    font-size: 70px;
+}
+.header{
+    display:flex;
+    justify-content:center;
+
+}

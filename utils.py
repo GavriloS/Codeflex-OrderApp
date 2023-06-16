@@ -7,7 +7,7 @@ from model.stack import Stack
 # creates pdf file from html
 def createPdf(html):
     # if it doesnt work download khtmltopdf from link https://wkhtmltopdf.org/downloads.html and edit the path correctly
-    config = pdfkit.configuration(wkhtmltopdf="C:\Program Files\wkhtmltopdf\\bin\wkhtmltopdf.exe")
+    config = pdfkit.configuration(wkhtmltopdf='/usr/bin/wkhtmltopdf')
     pdf = pdfkit.from_string(html, False, configuration=config)
     response = make_response(pdf)
     response.headers["Content-Type"] = "application/pdf"
